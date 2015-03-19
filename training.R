@@ -16,6 +16,8 @@ require(kaggleNCAA)
 # .boxcar_token<-c("TOKEN_HERE")
 # library(tmisc)
 
+# N clusters, set to 0 to turn off parallel processing
+ncluster<-4
 
 ### Set your directory here:
 setwd("C:/Users/Thomas/Desktop/NCAA/")
@@ -23,9 +25,10 @@ setwd("C:/Users/Thomas/Desktop/NCAA/")
 ######################### START TRAINING ####
 ivalidate<-read.csv("./ivalidate_pt1.csv")
 start<-Sys.time()
-cl<-makeCluster(8)
+if(ncluster>0){
+cl<-makeCluster(ncluster)
 registerDoSNOW(cl)
-
+}
 
 my_control <- trainControl(
   method='repeatedcv',
@@ -47,7 +50,10 @@ models <- caretList(
 stack <- caretStack(models, method='glm')
 greedy <- caretEnsemble(models, iter=1000L)
 
+if(ncluster>0){
 stopCluster(cl)
+}
+
 end<-Sys.time()
 boxcar_notify(token = .boxcar_token,body = paste("time taken:",c(start-end)),title = "Training Done")
 ####################################### END TRAINING ####
@@ -90,8 +96,10 @@ ivalidate<-read.csv("./ivalidate_pt3.csv")
 #Make the Final Training
 ######################### START TRAINING 2015 ####
 start<-Sys.time()
-cl<-makeCluster(8)
+if(ncluster>0){
+cl<-makeCluster(ncluster)
 registerDoSNOW(cl)
+}
 
 my_control <- trainControl(
   method='repeatedcv',
@@ -113,7 +121,9 @@ models <- caretList(
 stack <- caretStack(models, method='glm')
 greedy <- caretEnsemble(models, iter=1000L)
 
+if(ncluster>0){
 stopCluster(cl)
+}
 end<-Sys.time()
 
 boxcar_notify(token = .boxcar_token,body = paste("time taken:",c(start-end)),title = "Final Training Done")
