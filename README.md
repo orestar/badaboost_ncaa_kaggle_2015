@@ -1,6 +1,6 @@
 # Introduction
 This is the model and compiled data we used to make our predictions in the 2015 Kaggle Tournament. 
-The predictions can be predicted (generally), by running the script above. Slight differences may occur in the ultimate bracket that the process predicts because of differences in random seeds and bootstrapping, and because the probability of any given team emerging as the winner are so incredibly slim. 
+The predictions can be generated (with minor effort), by running the script above. Slight differences may occur in the ultimate bracket that the process predicts because of differences in random seeds and bootstrapping, and because the probability of any given team emerging as the overall winner are so incredibly slim. This is not a major concern for us as the competition is scored from a prediciton of every possible matchup
 
 ![](bracket.png)
 
