@@ -12,7 +12,7 @@ The predictions can be generated (with minor effort), by running the script abov
 4. Set appropriate cores for parallel processing on line 20
 
 
-alternatively, you can view a more pleasing annotated version of the [code here](http//trcook.github.io/badaboost_ncaa_kaggle_2015): 
+alternatively, you can view a more pleasing annotated version of the [code here](http://trcook.github.io/badaboost_ncaa_kaggle_2015): 
 
 # Team:
 - Stefan Wojcik
