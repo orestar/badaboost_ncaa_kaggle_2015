@@ -11,6 +11,9 @@ The predictions can be generated (with minor effort), by running the script abov
 3. Change to appropriate directory on line 23 of ncaa_predict.R
 4. Set appropriate cores for parallel processing on line 20
 
+
+alternatively, you can view a more pleasing annotated version of the [code here](trcook.github.io/badaboost_ncaa_kaggle_2015): 
+
 # Team:
 - Stefan Wojcik
 - Joby Schaffer
